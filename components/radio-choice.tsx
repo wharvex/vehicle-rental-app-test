@@ -1,20 +1,28 @@
 import type { NextPage } from "next";
+import { useMemo, type CSSProperties } from "react";
+import IconRadioChoiceUnselect from "./icon-radio-choice-unselect";
 import ContentRadioChoice from "./content-radio-choice";
 
 type RadioChoiceType = {
   text?: string;
+
+  /** Style props */
+  iconRadioChoiceUnselectBoxSizing?: CSSProperties["boxSizing"];
 };
 
-const RadioChoice: NextPage<RadioChoiceType> = ({ text }) => {
+const RadioChoice: NextPage<RadioChoiceType> = ({
+  text,
+  iconRadioChoiceUnselectBoxSizing,
+}) => {
+  const iconRadioChoiceUnselectStyle: CSSProperties = useMemo(() => {
+    return {
+      boxSizing: iconRadioChoiceUnselectBoxSizing,
+    };
+  }, [iconRadioChoiceUnselectBoxSizing]);
+
   return (
     <div className="h-11 flex flex-row items-center justify-start py-0 px-[15px] box-border gap-[20px] self-stretch">
-      <div className="overflow-hidden flex flex-row items-start justify-start p-0.5">
-        <img
-          className="relative w-[19.5px] h-[19.5px]"
-          alt=""
-          src="/vector-stroke.svg"
-        />
-      </div>
+      <IconRadioChoiceUnselect iconRadioChoiceUnselectBoxSizing="border-box" />
       <ContentRadioChoice text="Location" />
     </div>
   );

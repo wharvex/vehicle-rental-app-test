@@ -7,14 +7,20 @@ type CardDatesType = {
 
   /** Style props */
   cardDatesFlex?: CSSProperties["flex"];
+  cardDatesBoxSizing?: CSSProperties["boxSizing"];
 };
 
-const CardDates: NextPage<CardDatesType> = ({ calendar1, cardDatesFlex }) => {
+const CardDates: NextPage<CardDatesType> = ({
+  calendar1,
+  cardDatesFlex,
+  cardDatesBoxSizing,
+}) => {
   const cardDatesStyle: CSSProperties = useMemo(() => {
     return {
       flex: cardDatesFlex,
+      boxSizing: cardDatesBoxSizing,
     };
-  }, [cardDatesFlex]);
+  }, [cardDatesFlex, cardDatesBoxSizing]);
 
   return (
     <div

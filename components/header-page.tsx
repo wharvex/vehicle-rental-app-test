@@ -8,10 +8,10 @@ type HeaderPageType = {
   image1?: string;
 
   /** Style props */
-  headerPageBoxSizing?: CSSProperties["boxSizing"];
   headerPageBackgroundImage?: CSSProperties["backgroundImage"];
   headerPageFlexShrink?: CSSProperties["flexShrink"];
   imageHeaderPageLogoCursor?: CSSProperties["cursor"];
+  headerPageBoxSizing?: CSSProperties["boxSizing"];
 
   /** Action props */
   onImageHeaderPageLogoClick?: () => void;
@@ -20,19 +20,19 @@ type HeaderPageType = {
 const HeaderPage: NextPage<HeaderPageType> = ({
   image,
   image1,
-  headerPageBoxSizing,
   headerPageBackgroundImage,
   headerPageFlexShrink,
   imageHeaderPageLogoCursor,
+  headerPageBoxSizing,
   onImageHeaderPageLogoClick,
 }) => {
   const headerPageStyle: CSSProperties = useMemo(() => {
     return {
-      boxSizing: headerPageBoxSizing,
       backgroundImage: headerPageBackgroundImage,
       flexShrink: headerPageFlexShrink,
+      boxSizing: headerPageBoxSizing,
     };
-  }, [headerPageBoxSizing, headerPageBackgroundImage, headerPageFlexShrink]);
+  }, [headerPageBackgroundImage, headerPageFlexShrink, headerPageBoxSizing]);
 
   const imageHeaderPageLogoStyle: CSSProperties = useMemo(() => {
     return {
@@ -49,7 +49,10 @@ const HeaderPage: NextPage<HeaderPageType> = ({
         image="/image3@2x.png"
         imageHeaderPageLogoCursor="unset"
       />
-      <ImageHeaderPageHamgurge image="/image2@2x.png" />
+      <ImageHeaderPageHamgurge
+        image="/image2@2x.png"
+        imageHeaderPageHamgurgeBoxSizing="border-box"
+      />
     </header>
   );
 };

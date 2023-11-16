@@ -7,17 +7,20 @@ type CardTestimonialsType = {
 
   /** Style props */
   cardTestimonialsFlex?: CSSProperties["flex"];
+  cardTestimonialsBoxSizing?: CSSProperties["boxSizing"];
 };
 
 const CardTestimonials: NextPage<CardTestimonialsType> = ({
   star1,
   cardTestimonialsFlex,
+  cardTestimonialsBoxSizing,
 }) => {
   const cardTestimonialsStyle: CSSProperties = useMemo(() => {
     return {
       flex: cardTestimonialsFlex,
+      boxSizing: cardTestimonialsBoxSizing,
     };
-  }, [cardTestimonialsFlex]);
+  }, [cardTestimonialsFlex, cardTestimonialsBoxSizing]);
 
   return (
     <div

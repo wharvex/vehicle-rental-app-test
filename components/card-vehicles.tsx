@@ -5,14 +5,19 @@ import HeaderCard from "./header-card";
 type CardVehiclesType = {
   /** Style props */
   cardVehiclesFlex?: CSSProperties["flex"];
+  cardVehiclesBoxSizing?: CSSProperties["boxSizing"];
 };
 
-const CardVehicles: NextPage<CardVehiclesType> = ({ cardVehiclesFlex }) => {
+const CardVehicles: NextPage<CardVehiclesType> = ({
+  cardVehiclesFlex,
+  cardVehiclesBoxSizing,
+}) => {
   const cardVehiclesStyle: CSSProperties = useMemo(() => {
     return {
       flex: cardVehiclesFlex,
+      boxSizing: cardVehiclesBoxSizing,
     };
-  }, [cardVehiclesFlex]);
+  }, [cardVehiclesFlex, cardVehiclesBoxSizing]);
 
   return (
     <div
